@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<!-- <link rel="android-chrome-192x192" sizes="192x192" href="android-chrome-192x192.png">
+	<link rel="android-chrome-512x512" sizes="512x512" href="android-chrome-512x512.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="shortcut icon" href="apple-touch-icon.png"> -->
+
+	<meta name="description" content="">
+	<link rel="stylesheet" href="style.css">
+	<title>Электрическое отопление</title>
+</head>
+
+<body>
+
+	<div class="main">
+		<div class="container">
+			<div class="modal">
+				<div class="modal-box">
+					<div class="modal-exit" onclick="closeModal();">
+						❌
+					</div>
+					<div class="formBx">
+						<form id="form_id">
+							<h3>Напишите нам и мы перезвоним с ответом</h3>
+							<input type="text" id="input_text" name="name" placeholder="Имя">
+
+							<input type="tel" name="phone" id="input_tel" placeholder="Телефон *" required>
+							<textarea name="message" id="input_message" placeholder="Ваше сообщение"></textarea>
+							<button class="modal-btn" type="submit">Отправить</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="tel">
+				<a href="tel:80333613612">+375 33 361-36-12</a>
+			</div>
+			<main>
+
+				<div class="box-1">
+					<div class="box-1-title">
+						<div>
+							<div class="title-box">
+								<p class=''>
+									<span className="text-white">Получите</span> профессиональную<span className="text-white">
+										консультацию</span>
+								</p>
+							</div>
+							<h1 class="">Подключим <span>все коммуникации</span><br class="br"> к Вашему дому</h1>
+
+						</div>
+						<div class="content-call-box">
+							<div class="content-box">
+								<p>
+									Наша команда оказывает полный комплекс услуг на любых объектах под ключ в
+									<span>Минске и Минской области.</span>
+								</p>
+								<p class="content-box-p">
+									Проект | Подключение | Монтаж
+								</p>
+							</div>
+							<div class="call-box" onclick="openModal();">
+								<div class="call-box-inside">
+									<div>
+										<p><span>Написать</span></p>
+										<p><span>Мастеру</span>
+									</div>
+									</p>
+									<img src="./arrow-up.svg" alt="" class="arrow">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="dl-blurbs">
+						<div>
+							<dl>
+								<dt>Вода</dt>
+								<dd>Отопление</dd>
+								<dd>Водоснабжение</dd>
+								<dd>Канализация</dd>
+								<dd>Очистка воды</dd>
+								<dd>Установка сантехпосуды</dd>
+								<dd>Скважины</dd>
+								<dd>Грунтовые воды (понижение)</dd>
+								<dd>Ливневая канализация</dd>
+								<dd>Водяной теплый пол</dd>
+								<dd>Колодцы</dd>
+
+							</dl>
+							<dl>
+								<dt>Электричество</dt>
+								<dd>Строительство линий электропередач</dd>
+								<dd>Строительство трансформаторных подстанций</dd>
+								<dd>Прокладка электрический кабелей 0,4кВ - 10кВ</dd>
+								<dd>Ремонт электрических кабелей 0,4кВ - 10кВ</dd>
+								<dd>Поиск места повреждения электрических кабелей 0,4кВ - 10кВ</dd>
+								<dd>Электрический теплый пол</dd>
+								<dd>Вентиляция</dd>
+							</dl>
+						</div>
+						<div>
+							<dl>
+								<dt>Связь</dt>
+								<dd>Прокладка линий связи</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+				<div class="box-2">
+
+					<!-- <img src="./1.png" alt="" class="box-2-img"> -->
+					<div class="pink-gradient"></div>
+					<div class="white-gradient"></div>
+					<div class="blue-gradient"></div>
+				</div>
+				<div class="blue-2-gradient"></div>
+			</main>
+
+
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script type="text/javascript">
+
+
+		const token = '5562126487:AAGqX2TBd3toX15OgSCQ2yW55RNfgtBWQko'
+		const chat_id = '-1001794221917'
+		const uri_api = `https://api.telegram.org/bot${token}/sendMessage`
+
+
+
+		const btn = document.querySelector('.modal-btn')
+
+		document.getElementById('form_id').addEventListener('submit', function (e) {
+			e.preventDefault()
+			let messageForm = `<b>Заказ с сайта Коммуникации</b>\n`
+			messageForm += `<b> </b>\n`
+			messageForm += `<b>Сообщение: </b> <i>«${this.message.value}»</i>\n`
+			messageForm += `<b> </b>\n`
+			messageForm += `<b>Отправитель: ${this.name.value}</b> \n`
+			messageForm += `<b>Телефон:${this.phone.value} </b> \n`
+
+			axios.post(uri_api, {
+				chat_id,
+				parse_mode: 'html',
+				text: messageForm,
+			}).then(data => {
+				btn.innerHTML = 'Отправлено'
+				setTimeout(() => {
+					// closeModal()
+					btn.innerHTML = 'Отправить'
+				}, 2000)
+			}).then(data => {
+				document.getElementById('input_text').value = ''
+				document.getElementById('input_tel').value = ''
+				document.getElementById('input_message').value = ''
+			})
+		})
+		// }
+
+		function openModal() {
+			document.querySelector('.modal').classList.add('active')
+		}
+		const closeModal = () => document.querySelector('.modal').classList.remove('active')
+	</script>
+
+</body>
+
+</html>
