@@ -425,6 +425,7 @@ dt{
  @media screen and (max-width: 475px){
 	.box-1 h1 {
 		font-size: 2.6em;
+		line-height: 1.2;
   }
   .call-box {
 	width: 90px;
@@ -433,9 +434,7 @@ dt{
 .content-box {
 	padding-right: 0.5em;
 }
-
  }
- 
  @media screen and (max-width: 447px){
 	.content-call-box div p{
 		font-size: .9em;
@@ -444,7 +443,7 @@ dt{
 		font-size: .8em;
   }
   .dl-blurbs{
-	bottom: .5em;
+	bottom: 2.5em;
   }
   .br{
 	display: none;
@@ -455,7 +454,7 @@ dd {
  }
  @media screen and (max-width: 428px){
 	.title-box{
-		margin-bottom: .3em;
+		margin-bottom: 1em;
 	}
 	.title-box p{
 		font-size: .7em;
@@ -467,6 +466,9 @@ dd {
   .content-call-box div p {
 	font-size: .8em;
 }
+.content-call-box .content-box-p{
+	font-size: 1em;
+}
   .arrow{
 	display: none;
   }
@@ -474,10 +476,10 @@ dd {
 	align-items: center;
   }
   .content-call-box{
-	margin-top: 1em;
+	margin-top: 3em;
   }
   .box-1-title{
-	margin-top: 2em;
+	margin-top: 3em;
   }
  }
  @media screen and (max-width: 375px){
